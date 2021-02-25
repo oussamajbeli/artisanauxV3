@@ -14,11 +14,12 @@ class Productseeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            'name'=>'bleuet',
-            'price'=>9,
-            'description'=>'this hydrosol is made with debluet flowers, it is used in compresses on the eyes',
-            'category'=>'hydrolat',
-            'gallery'=>'img/beuet.jpg',
+            'name'=>'Eucaliptus',
+            'price'=>5,
+            'description'=>'You can use it on pharmaceutical, antiseptic, repellent, flavouring, fragrance and industrial uses.',
+            'qty'=>30,
+            'category'=>'huiles essentielles',
+            'gallery'=>'img/caliptus.jpg',
         ],
        
     

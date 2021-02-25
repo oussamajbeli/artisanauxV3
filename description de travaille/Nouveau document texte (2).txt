@@ -1,0 +1,59 @@
+la base de données contient 6 table : 
+    cart(id,product_id,user_id,prod_qty,created_at,updated_at)
+    categories(id,name,created_at,updated_at)
+    messages(id,name,email,number,msg,created_at,updated_at)
+    orders(id,product_id,user_id,status,payment_method,payment_status,emailcreated_at,updated_at)
+    products(id,name,price,category,description,qty,gallery,created_at,updated_at)
+    users(id,name,email,password,created_at,updated_at)
+
+
+les methodes que j'ai utiliser pour echanger et modifier mes donner et mes vues:
+ 
+controlleur pour les categories: method categories()
+
+controlleur pour les messages: method messaging() enregistre les formulairede message dans la base de données 
+
+controlleur pour les produits: method index() retourne tous les produits
+
+                               method selection() retourne tous les produits spécifiés dans une catégoie
+                               
+			       method  detail() retourne tous les detailles d'un produit
+
+		               method  search() retourne tous les produits qui sont nommées comme le mot tapées par le client 
+
+                               method addToCart() test si un utilisateur est connécté
+                                	remplir la cart par des produit sélécionnées par le client
+					sauvegarder les produits dans la carte et retourne un vue
+
+			       method cartItem() retourne tous le nombre des produits dans la carte pour un utilisateur 
+
+			       method cartList() retourne tous les produits dans une carte pour un utilisateur 
+
+
+			       method remove() suprime une carte après la validation de demande par l'utilisateur
+
+			       method orderNow() retourne le prix total de tous les produits selectionnées dans une carte reliée à un utilisateur
+
+
+		               method orderPlace() sauvegarder l'ordre de commande d'un utilisateur dans la table orders et retourne la page index
+
+			       method myOrders()  retourne tous les commande validées par un utilisateur spécifié
+
+
+controlleur por les utilisateur: method login() permet d'ouvrir une session pour un utilisateur qui a un compte
+
+				method Register() créer un compte pour le client et l'enregistrer dans la table users
+
+				method create() sauvgarder les données de compte pour un nouvaux client
+
+
+le model MVC model view controller : 
+	model :le class qui fait créeer lire mise a jour et supprimer des données dans la base de  données
+	view : les template pages html consultées par un client
+	controller : le class qui contient des methodes crées par le deéveloppeur pour interagir avec les views et les models
+le routage : on créer des route pour organiser et relier les pages avec les methodes qui sont fait pour lui
+
+les techniques que j'ai utilise pour le réferancement chaque image doit contient un title et alt
+chaque page html doit contenir un <meta name="description" content="..."> qui decrit l'utilité de cette page
+
+j'ai(Oussama Jbeli) travailler avec Fadi Matallah (il fait le header le footer et un peut de page html et style) 

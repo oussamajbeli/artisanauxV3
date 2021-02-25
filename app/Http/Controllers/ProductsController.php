@@ -16,15 +16,24 @@ class ProductsController extends Controller
          return view('product',['products'=>$data]);
      }
 
+
+     function selection($name){
+        $data = Product::where('category','like', $name)->get();
+
+        return view('categorydetail',['products'=>$data,'name'=>$name]);
+     
+    }
+    
+
      function detail($id){
         $datas= Product::find($id);
         
         return view('detail',['product'=>$datas])   ;
      }
 
-     function search(Request$request){
+     function search(Request $request){
         
-         $data = Product::where('name','like', '%'.$request->input('query').'%')->get();
+         $data = Product::where('name','like', '%'.$request->input('query'))->get();
 
          return view('search',['products'=>$data]);
         }
@@ -32,11 +41,13 @@ class ProductsController extends Controller
         function addToCart(Request $req){
             if($req->session()->has('user'))
             {
-                
+               
                 $cart = new Cart;
                 $cart->user_id=$req->session()->get('user')['id'];
                 $cart->product_id=$req->product_id;
+                $cart->prod_qty=$req->quantity;
                 $cart->save();
+        
                 return redirect('product');
             }
             else{
@@ -57,7 +68,10 @@ class ProductsController extends Controller
           ->where('cart.user_id',$userId)
           ->select('products.*','cart.id as cart_id')->get();
 
-          return view('cartlist',['products'=>$products]);
+          $cart = DB::table('cart')->get();
+
+          return view('cartlist',['products'=>$products,'cart'=>$cart]);
+         
         }
 
         function remove($id){
@@ -68,11 +82,17 @@ class ProductsController extends Controller
 
         function orderNow(){
             $userId=Session::get('user')['id'];
+
             $total=   $products = DB::table('cart')
             ->join('products','cart.product_id','=','products.id')
             ->where('cart.user_id',$userId)
             ->select('products.*','cart.id as cart_id')->sum('products.price');
-  
+           
+
+            
+           
+            
+     
             return view('order',['total'=>$total]);
         }
 
@@ -81,6 +101,7 @@ class ProductsController extends Controller
         
             $userId=Session::get('user')['id'];
             $allCart= Cart::where('user_id',$userId)->get();
+            
          foreach($allCart as $cart)
          {
              $order = new Order;
@@ -91,7 +112,14 @@ class ProductsController extends Controller
              $order->payment_status="pending";
              $order->email=$req->address;
              $order->save();
+
+             $pq = Product::where('id',$cart->product_id)->value('qty') ;
+
+            
+             Product::where('id',$cart->product_id)->update(array('qty' => $pq - $cart->prod_qty ));  
+
              Cart::where('user_id',$userId)->delete();
+            
          }
             $req->input();
 

@@ -17,7 +17,11 @@ use App\Http\Controllers\ProductssController;
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('product', function () {
+
+Route::get('/contacts', function () {
+    return view('contacts');
+});
+Route::get('/product', function () {
     return view('product');
 });
 
@@ -28,20 +32,38 @@ Route::get('/', function () {
 
 Route::get('logout', function () {
     Session::forget('user');
-    return view('login');
+    return redirect('/');
 });
+
+Route::get('/register', function () {
+    return view('register');
+});
+
+
+Route::get('/categories', function () {
+    return view('categories');
+});
+
+Route::get('/services', function () {
+    return view('services');
+});
+
+
 
 Route::post('/login','App\Http\Controllers\UsersController@login');
 
 Route::get('product','App\Http\Controllers\ProductsController@index');
 
-Route::get('detail/{id}','App\Http\Controllers\ProductsController@detail');
+Route::get('/categories','App\Http\Controllers\CategoriesController@categories');
+
+
+Route::get('/detail/{id}','App\Http\Controllers\ProductsController@detail');
 
 Route::get('search','App\Http\Controllers\ProductsController@search');
 
 Route::post('add_to_cart','App\Http\Controllers\ProductsController@addToCart');
 
-Route::get('cartlist','App\Http\Controllers\ProductsController@cartList');
+Route::get('/cartlist','App\Http\Controllers\ProductsController@cartList');
 
 Route::get('remove/{id}','App\Http\Controllers\ProductsController@remove');
 
@@ -49,4 +71,14 @@ Route::get('order','App\Http\Controllers\ProductsController@orderNow');
 
 Route::post('orderplace','App\Http\Controllers\ProductsController@orderPlace');
 
-Route::get('myorders','App\Http\Controllers\ProductsController@myOrders');
+Route::get('/myorders','App\Http\Controllers\ProductsController@myOrders');
+
+Route::post('register','App\Http\Controllers\UsersController@Register');
+
+
+Route::get('/categorydetail/{name}','App\Http\Controllers\ProductsController@selection');
+
+Route::post('/message','App\Http\Controllers\MessagesController@messaging');
+
+
+Route::get('sitemap.xml','App\Http\Controllers\SitemapController@index');

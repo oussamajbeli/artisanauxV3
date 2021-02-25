@@ -1,23 +1,24 @@
 
+<meta name="description" content="description of our website">
+
+<div  id="footer"  >
+  <img src="../img/jarra.jpg" style=";height:150px;width: 120px;float: right;"title="nabeul el jarra" alt="nabeul el jarra">
+
+  <p style="color: white;"> this market place is offers to you many artisanal products that are home made</p>
+  <h3 style="color: white;text-align : center;" >Welcome to ARTISANAUX website</h5>
+
+  <small style="color: white;">&copy Nabeul Region</small>
 
 
-<div class="list-group" id="footer">
- 
-    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Welcome to my website</h5>
-          <small></small>
-        </div>
-        <p class="mb-1"> this market place is made by Oussama Jbeli</p>
-        <small>&copy Iset Nabeul</small>
-      </a>
+      
   </div>
-  
+
   <style>
-    #footer { 
-   position:relative;
-   height:100%;
-   bottom: -150px;
- opacity: 0.3;
-    }
+   #footer {
+   
+    background-color: blue;
+    clear: both;
+  
+    height: 150px;
+   }
      </style>
