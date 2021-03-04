@@ -82,3 +82,12 @@ Route::post('/message','App\Http\Controllers\MessagesController@messaging');
 
 
 Route::get('sitemap.xml','App\Http\Controllers\SitemapController@index');
+
+
+Route::get('/dashbord','App\Http\Controllers\UsersController@dash');
+
+Route::get('/profile','App\Http\Controllers\adminController@profile');
+
+Route::get('/info','App\Http\Controllers\adminController@info');
+
+Route::get('/notification','App\Http\Controllers\adminController@notification');

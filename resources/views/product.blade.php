@@ -44,7 +44,8 @@ p{
   font-size:15px;
 }
 #nav li {
-  border-radius: 10px;
+  transition: 0.7s;
+
   border:2px solid blue;
     padding: 10px;
     float: left;

@@ -5,7 +5,7 @@
 
 
 .lab1 {
-  background-color: #11cccc;
+  background-color: #21b140;
   cursor: pointer;
   margin: 0 auto;
   text-align:center;
@@ -28,7 +28,7 @@
   display: none;
 }
 #menu1 {
-  background-color: #5a84fa;
+  background-color: #5afa62;
   width: 160px;
   overflow: hidden;
   max-height: 0;
@@ -45,7 +45,7 @@
 
 <meta name="description" content="A list of product categories">
 
-<div style="text-align:center;padding: 110px;">
+<div style="text-align:center;padding: 110px;height:20px;">
     <label for="menu-toggle1" class="lab1"> CATEGORIES</label>
     <input type="checkbox" id="menu-toggle1"/>
     <ul id="menu1">

@@ -11,6 +11,12 @@
   <a href="{{url('/')}}" class="logo">ARTISANAUX</a>
   @if(Session::has('user'))
   <div class="header-right">
+
+    @if(session()->get('user')->admin== 1 )
+    <a  href="{{url('/dashbord')}}">dashbord
+    </a>
+    
+    @else
     <a  href="{{url('/product')}}">Products
       <img src="../img/icons/prod.webp" style="width: 20px; height:20px;" title="products" alt="products"></a></li>
 
@@ -27,6 +33,7 @@
       <img src="../img/icons/check.png" style="width: 20px; height:20px;" alt="order" title="order">
 
     </a>
+    @endif
     <a href="{{url('logout')}}">Logout</a>
     <a class="active" style="font-size: 20px;">{{Session::get('user')['name']}}
       <img src="../img/icons/acount.webp" style="width: 20px; height:20px;" alt="login" title="login">
@@ -46,7 +53,7 @@
 
 </div>
 
-<div style="text-align:center;">
+<div style="float: right;">
   <form action="/search"  >
     <input  name="query" type="text" placeholder="Search" >
 
@@ -71,11 +78,11 @@ form {
   .submit{
   width: 90px;
   height:30px;
-  background-color: #1c87c9;
+  background-color: #47b81a;
   color:#ffffff;
   }
-.submit:hoover{
-  background-color:rgb(76, 76, 253);
+.submit:hover{
+  background-color:rgb(76, 253, 105);
 }
 
 
@@ -113,7 +120,7 @@ form {
 
 /* Style the active/current link*/
 .header a.active {
-  background-color: dodgerblue;
+  background-color: rgb(30, 255, 60);
   color: white;
 }
 

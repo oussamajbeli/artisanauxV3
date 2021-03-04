@@ -9,24 +9,25 @@
         <table class="table"> 
           <thead> 
           <tr> 
-              <th>Product Name</th> 
               <th>Delivery status</th> 
-              <th>Email</th> 
+              <th>Adress</th> 
               <th>Payment Status</th> 
               <th>Payment Method</th> 
-              <th>Gallery</th>
-          </tr> 
+              <th>Product</th>
+              <th>Price</th>
+              </tr> 
           </thead> 
           <tbody> 
             @foreach($orders as $order)
           <tr> 
-              <td>{{$order->name}}</td> 
               <td>{{$order->status}}</td> 
               <td>{{$order->email}}</td> 
               <td>{{$order->payment_status}}</td> 
               <td>{{$order->payment_method}}</td> 
-              <td><img src="{{$order->gallery}}" style="border-radius:20px;width:100px;margin:0 auto; height:100px;"></td> 
-          </tr> 
+              <td><img src="{{$order->gallery}}" style="border-radius:20px;width:100px;margin:0 auto; height:100px;"><p>{{$order->name}}</p></td> 
+              <td>{{$order->price}} $</td> 
+
+            </tr> 
           @endforeach
      
         

@@ -33,7 +33,6 @@ h5{
   font-size: 30px;
 }
 #nav {
- 
     border-radius: 10px ;
     font-size: 12px;
     height: 100px;
@@ -45,17 +44,17 @@ b{
   font-size:15px;
 }
 #nav li {
-  border-radius: 10px;
+ 
   border:2px solid blue;
     padding: 10px;
     float: left;
     max-width:200px;
-   
+   transition: 0.7s;
     margin:10px;
 }
 
 #nav li a {
-    color: #2416ee;
+    color: #2e21e7;
     float:right;
    
     font-size:20px;
